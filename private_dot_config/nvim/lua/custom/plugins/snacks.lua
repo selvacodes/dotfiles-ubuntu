@@ -18,6 +18,8 @@ return {
     notifier = {
       enabled = true,
       timeout = 3000,
+      top_down = false,
+      style = 'fancy',
     },
     picker = {
       enabled = true,
@@ -45,8 +47,8 @@ return {
       '<leader><space>',
       function()
         Snacks.picker.smart {
-          preset = 'vs-code',
           layout = {
+            preset = 'vscode',
             position = 'bottom',
           },
         }
@@ -86,6 +88,20 @@ return {
       desc = 'Command History',
     },
     {
+      '<leader>un',
+      function()
+        Snacks.notifier.hide()
+      end,
+      desc = 'Dismiss All Notifications',
+    },
+    {
+      '<leader>lg',
+      function()
+        Snacks.lazygit()
+      end,
+      desc = 'Dismiss All Notifications',
+    },
+    {
       '<leader>n',
       function()
         Snacks.picker.notifications()
@@ -93,9 +109,13 @@ return {
       desc = 'Notification History',
     },
     {
-      '<leader>e',
+      '<leader>fe',
       function()
-        Snacks.explorer()
+        Snacks.explorer {
+          layout = {
+            preset = 'right',
+          },
+        }
       end,
       desc = 'File Explorer',
     },
