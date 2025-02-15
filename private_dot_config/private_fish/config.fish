@@ -15,3 +15,13 @@ set -gx PATH $PATH /usr/local/go/bin
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 source "$HOME/.cargo/env.fish"
+
+function zellij_session
+    set session_name (basename (pwd))
+    if zellij list-sessions | grep -q $session_name
+        zellij attach -c $session_name
+    else
+        zellij -s $session_name
+    end
+end
+
