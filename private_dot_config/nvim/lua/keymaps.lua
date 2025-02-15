@@ -34,10 +34,6 @@ vim.keymap.set('n', '<leader>l', '<C-w><C-l>', { desc = 'Move focus to the right
 vim.keymap.set('n', '<leader>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<leader>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set({ 'n', 'o', 'x' }, 'w', "<cmd>lua require('spider').motion('w')<CR>", { desc = 'Spider-w' })
-vim.keymap.set({ 'n', 'o', 'x' }, 'e', "<cmd>lua require('spider').motion('e')<CR>", { desc = 'Spider-e' })
-vim.keymap.set({ 'n', 'o', 'x' }, 'b', "<cmd>lua require('spider').motion('b')<CR>", { desc = 'Spider-b' })
-
 vim.keymap.set('n', '<leader>s', ':vsp<CR>', { desc = 'Open vertical split' })
 
 -- vim.keymap.set('n', '<leader>-', ':Drex<CR>', { desc = 'Open file manager' })
@@ -75,6 +71,16 @@ vim.keymap.set('n', '<leader>gg', function()
 end, {
   desc = 'grug-far structural search',
 })
+
+vim.keymap.set('n', '<tab>', function()
+  return
+end, { silent = true, desc = 'Fold-cycle: open folds' })
+vim.keymap.set('n', '<s-tab>', function()
+  return require('fold-cycle').close()
+end, { silent = true, desc = 'Fold-cycle: close folds' })
+vim.keymap.set('n', 'zC', function()
+  return require('fold-cycle').close_all()
+end, { remap = true, silent = true, desc = 'Fold-cycle: close all folds' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
