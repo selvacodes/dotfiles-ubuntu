@@ -1,0 +1,176 @@
+* {
+  border: none;
+  font-size: 12px;
+  font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF";
+  min-height: 20px;
+  color: #d3c6aa;
+}
+
+window#waybar {
+  background: transparent;
+  margin: 3px;
+}
+
+#custom-logo {
+  padding: 0 10px;
+}
+
+.modules-right {
+  padding-left: 5px;
+  border-radius: 15px 0 0 15px;
+  margin-top: 2px;
+  background: #3a434a;
+  color: #d3c6aa;
+}
+
+.modules-center {
+  padding: 0 15px;
+  margin-top: 2px;
+  border-radius: 15px 15px 15px 15px;
+  background: #3a434a;
+  color: #d3c6aa;
+}
+
+.modules-center div {
+  padding: 0 15px;
+}
+
+.modules-left {
+  border-radius: 0 15px 15px 0;
+  margin-top: 2px;
+  background: #3a434a;
+  color: #d3c6aa;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background: transparent;
+  color: #a7b0a7;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background: rgba(131, 165, 152, 0.2);
+}
+
+#workspaces button.active {
+  background: #434c51;
+  color: #83a598;
+  border-bottom: 2px solid #83a598;
+  padding-bottom: 2px;
+}
+
+#workspaces button.urgent {
+  color: #e67e80;
+  background: rgba(230, 126, 128, 0.2);
+}
+
+#battery,
+#custom-clipboard,
+#custom-colorpicker,
+#custom-powerDraw,
+#bluetooth,
+#pulseaudio,
+#network,
+#disk,
+#memory,
+#backlight,
+#cpu,
+#temperature,
+#custom-weather,
+#idle_inhibitor,
+#jack,
+#tray,
+#window,
+#clock {
+  padding: 0 8px;
+  background: transparent;
+  color: #d3c6aa;
+}
+
+#pulseaudio {
+  padding-top: 3px;
+}
+
+#temperature.critical,
+#pulseaudio.muted {
+  color: #e67e80;
+  padding-top: 0;
+}
+
+#clock {
+  color: #83a598;
+  font-weight: bold;
+}
+
+#battery.charging {
+  color: #d3c6aa;
+  background-color: #a7c08a;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #dbbc7f;
+  color: #2f383e;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #e67e80;
+  color: #d3c6aa;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 5px;
+  padding: 0 8px;
+}
+
+#custom-niri-window {
+  padding: 0 8px;
+  color: #7fbbb3;
+  font-weight: bold;
+}
+
+#custom-niri-workspaces {
+  padding: 0 8px;
+  color: #83a598;
+  background: transparent;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#window {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #434c51;
+  color: #d3c6aa;
+  font-style: italic;
+}
+
+window#waybar.Alacritty {
+  background-color: rgba(47, 56, 62, 0.9);
+  color: #d3c6aa;
+}
+
+window#waybar.chromium-browser {
+  background-color: rgba(211, 198, 170, 0.9);
+  color: #2f383e;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  color: transparent;
+  border-radius: 0;
+}
+
+@keyframes blink {
+  to {
+    background-color: #d69970;
+    color: #2f383e;
+  }
+}
