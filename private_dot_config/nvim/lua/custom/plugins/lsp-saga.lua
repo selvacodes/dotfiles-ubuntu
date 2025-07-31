@@ -19,7 +19,7 @@ local M = {
     vim.keymap.set('n', 'F', '<cmd>Lspsaga finder<CR>', { desc = 'Finder' })
     vim.keymap.set('n', 'gsd', '<cmd>Lspsaga peek_definition<CR>', { desc = 'Peek Definition' })
     vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', { desc = 'Rename' })
-    vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', { desc = 'Code Action' })
+    -- vim.keymap.set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', { desc = 'Code Action' })
   end,
   dependencies = {
     'nvim-treesitter/nvim-treesitter', -- optional

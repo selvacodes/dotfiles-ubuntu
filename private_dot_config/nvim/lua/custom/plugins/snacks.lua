@@ -7,6 +7,7 @@ return {
       enabled = true,
     },
     dashboard = {
+      dashboard = { example = "github" },
       enabled = true,
     },
     indent = {
@@ -95,7 +96,7 @@ return {
       desc = 'Dismiss All Notifications',
     },
     {
-      '<leader>lg',
+      '<leader>gl',
       function()
         Snacks.lazygit()
       end,
@@ -234,14 +235,14 @@ return {
       end,
       desc = 'Grep',
     },
-    {
-      '<leader>8',
-      function()
-        Snacks.picker.grep_word()
-      end,
-      desc = 'Visual selection or word',
-      mode = { 'n', 'x' },
-    },
+    -- {
+    --   '<leader>8',
+    --   function()
+    --     Snacks.picker.grep_word()
+    --   end,
+    --   desc = 'Visual selection or word',
+    --   mode = { 'n', 'x' },
+    -- },
     {
       '<leader>fw',
       function()

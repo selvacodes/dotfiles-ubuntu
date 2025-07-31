@@ -1,4 +1,4 @@
 return {
-    'nvim-focus/focus.nvim',
-    opts = {}
+  'nvim-focus/focus.nvim',
+  opts = {},
 }

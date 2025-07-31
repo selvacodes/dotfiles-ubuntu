@@ -45,6 +45,10 @@ vim.keymap.set('n', '<leader>Q', ':qa<CR>', { desc = 'Quit' })
 vim.keymap.set('i', 'jj', '<esc>', { desc = 'Normal mode' })
 vim.keymap.set('x', 'p', '[[_dP]]', { desc = 'Normal mode' })
 
+vim.keymap.set('n', '<leader>tt', ':OverseerToggle<CR>', { desc = 'Normal mode' })
+vim.keymap.set('n', '<leader>tr', ':OverseerRun<CR>', { desc = 'Normal mode' })
+vim.keymap.set('n', '<leader>ts', ':OverseerStop<CR>', { desc = 'Normal mode' })
+
 vim.keymap.set('n', '<leader>gf', function()
   local grug = require 'grug-far'
   local ext = vim.bo.buftype == '' and vim.fn.expand '%:e'
@@ -55,7 +59,7 @@ vim.keymap.set('n', '<leader>gf', function()
     },
   }
 end, {
-  desc = 'grug-far structural search',
+  desc = 'grug-far search',
 })
 
 vim.keymap.set('n', '<leader>gg', function()
@@ -72,15 +76,21 @@ end, {
   desc = 'grug-far structural search',
 })
 
-vim.keymap.set('n', '<tab>', function()
-  return
-end, { silent = true, desc = 'Fold-cycle: open folds' })
-vim.keymap.set('n', '<s-tab>', function()
-  return require('fold-cycle').close()
-end, { silent = true, desc = 'Fold-cycle: close folds' })
-vim.keymap.set('n', 'zC', function()
-  return require('fold-cycle').close_all()
-end, { remap = true, silent = true, desc = 'Fold-cycle: close all folds' })
+vim.keymap.set('n', '<leader>8', function()
+  local grug = require 'grug-far'
+  local ext = vim.bo.buftype == '' and vim.fn.expand '%:e'
+  grug.open {
+    transient = true,
+    engine = 'ripgrep',
+    prefills = {
+      search = vim.fn.expand("<cword>"),
+      filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
+    },
+
+  }
+end, {
+  desc = 'grug-far structural search',
+})
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -95,5 +105,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+
+
+vim.keymap.set(
+  "n",
+  "<leader>k",
+  '<cmd>lua require("kubectl").toggle({ tab: boolean })<cr>',
+  { noremap = true, silent = true }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>u",
+  '<cmd>lua require("grug-far").toggle_instance({ instanceName="far", staticTitle="Find and Replace" })<cr>',
+  { noremap = true, silent = true }
+)
 
 -- vim: ts=2 sts=2 sw=2 et
