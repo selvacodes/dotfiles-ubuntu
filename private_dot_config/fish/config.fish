@@ -45,6 +45,7 @@ abbr --add  ga 'git add'
 abbr --add  gaa 'git add --all'
 abbr --add  gaa! 'git add --all && git commit -m'
 abbr --add  gd 'git diff'
+abbr --add  gp 'git push'
 
 abbr --add  ch 'chezmoi'
 abbr --add  chcd 'chezmoi cd'
