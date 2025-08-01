@@ -1,5 +1,4 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
     atuin init fish | source
 end
 starship init fish | source
@@ -26,12 +25,48 @@ end
 # Aliases
 
 alias k="kubectl"
-alias nv="/home/shri/nvim/nvim-linux-x86_64/bin/nvim"
+alias n="/home/shri/nvim/nvim-linux-x86_64/bin/nvim"
 alias ls='eza -lh --group-directories-first --icons=auto'
 alias lsa='ls -a'
 alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff='fzf --preview "bat --style=numbers --color=always {}"'
+
+# Directory shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Tools
+alias g='git'
+
+# Git
+abbr --add  ga 'git add'
+abbr --add  gaa 'git add --all'
+abbr --add  gaa! 'git add --all && git commit -m'
+abbr --add  gd 'git diff'
+
+abbr --add  ch 'chezmoi'
+abbr --add  chcd 'chezmoi cd'
+abbr --add  chap 'chezmoi apply'
+
+abbr --add  kaf 'kubectl apply -f'
+abbr --add  kd 'kubectl delete'
+abbr --add  kds 'kubectl delete -s'
+abbr --add  kg 'kubectl get'
+abbr --add  kl 'kubectl logs'
+
+abbr --add  zs 'zellij_session'
+
+# opencode
+fish_add_path /home/shri/.opencode/bin
+~/.local/bin/mise activate fish | source
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/shri/.lmstudio/bin
+set -U EDITOR "n"
+set -U VISUAL "zed"
+# End of LM Studio CLI section
 
 # zd function
 function zd
@@ -52,28 +87,6 @@ end
 function open
     xdg-open $argv >/dev/null 2>&1
 end
-
-# Directory shortcuts
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# Tools
-alias n='nvim'
-alias g='git'
-
-# Git
-alias gcm='git commit -m'
-alias gcam='git commit -a -m'
-alias gcad='git commit -a --amend'
-
-# opencode
-fish_add_path /home/shri/.opencode/bin
-~/.local/bin/mise activate fish | source
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /home/shri/.lmstudio/bin
-# End of LM Studio CLI section
 
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")

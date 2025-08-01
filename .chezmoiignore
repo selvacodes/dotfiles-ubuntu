@@ -1,0 +1,12 @@
+.github
+README.md
+*.orig
+**/.orig
+*.rej
+stylua.toml
+scripts
+**/lazy-lock.json
+.envrc
+system
+Dockerfile
+test.sh
