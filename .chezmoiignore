@@ -6,6 +6,7 @@ README.md
 stylua.toml
 scripts
 **/lazy-lock.json
+**/fish_variables
 .envrc
 system
 Dockerfile

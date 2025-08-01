@@ -134,10 +134,6 @@ keybinds clear-defaults=true {
         }
     }
     shared_among "normal" "locked" {
-        // bind "Alt left" { MoveFocusOrTab "left"; }
-        // bind "Alt down" { MoveFocus "down"; }
-        // bind "Alt up" { MoveFocus "up"; }
-        // bind "Alt right" { MoveFocusOrTab "right"; }
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
@@ -152,6 +148,7 @@ keybinds clear-defaults=true {
         bind "Alt t" { NewTab; }
         bind "Alt x" { CloseTab; }
         bind "Alt r" { CloseTab;NewTab; }
+        bind "Alt z" { ToggleFocusFullscreen; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
