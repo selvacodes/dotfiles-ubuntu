@@ -48,6 +48,7 @@ abbr --add  gd 'git diff'
 abbr --add  gp 'git push'
 
 abbr --add  ch 'chezmoi'
+abbr --add  chs 'chezmoi status'
 abbr --add  chcd 'chezmoi cd'
 abbr --add  chap 'chezmoi apply'
 
